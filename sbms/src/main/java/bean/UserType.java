@@ -7,12 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@SuppressWarnings("all")
 public class UserType{
 
-    private int utid;
+    private Integer utid;
 
     private String position;
 
-    private int maxCount;
+    private Integer maxCount;
 
 }

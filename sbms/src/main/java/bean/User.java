@@ -17,11 +17,11 @@ public class User{
 
     private String name;
 
-    private int sex;
+    private String sex;
 
-    private int age;
+    private Integer age;
 
-    private int userType;
+    private Integer userType;
 
     private Float balance;
 

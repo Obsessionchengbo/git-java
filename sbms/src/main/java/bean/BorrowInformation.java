@@ -4,23 +4,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class BorrowInformation {
 
+    private Integer buid;
+
     private Integer uid;
 
     private Integer bid;
 
-    private LocalDate borrowTime;
+    private Timestamp borrowTime;
 
-    private int status;
+    private Integer status;
 
-    private LocalDate returnTime;
+    private Timestamp returnTime;
 
     private Float amercement;
 

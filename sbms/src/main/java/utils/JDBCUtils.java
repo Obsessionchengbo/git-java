@@ -28,7 +28,7 @@ public class JDBCUtils {
     static {
         try {
             //赋值
-            InputStream is = JDBCUtils.class.getClassLoader().getResourceAsStream("resources\\druid.properties");
+            InputStream is = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
             Properties pro = new Properties();
             pro.load(is);
             driverClass = pro.getProperty("driverClass");
@@ -74,6 +74,9 @@ public class JDBCUtils {
                 e.printStackTrace();
             }
         }
+    }
+    public static void close(Connection conn, Statement stat) {
+        close(conn,stat,null);
     }
 }
 
