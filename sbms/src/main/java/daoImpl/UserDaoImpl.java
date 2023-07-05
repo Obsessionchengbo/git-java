@@ -7,7 +7,7 @@ import utils.JDBCUtils;
 import java.sql.*;
 import java.util.ArrayList;
 
-@SuppressWarnings("all")
+//@SuppressWarnings("all")
 public class UserDaoImpl implements UserDao {
     @Override//查询所有用户
     public ArrayList<User> userSelect() {
@@ -35,10 +35,10 @@ public class UserDaoImpl implements UserDao {
                 Integer userType = rs.getInt("user_type");
                 Float balance = rs.getFloat("balance");
 
-                //封装Student对象
+                //封装用户对象
                 User user = new User(uid, userName, password, name, sex, age, userType, balance);
 
-                //将student对象保存到集合中
+                //将用户对象保存到集合中
                 list.add(user);
             }
 
@@ -105,7 +105,7 @@ public class UserDaoImpl implements UserDao {
         int result = 0;
         try {
             con = utils.JDBCUtils.getConnect();
-            String sql = "insert into user value (?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "insert into user value ( ?,?, ?, ?, ?, ?, ?,?);";
             pst = con.prepareStatement(sql);
             pst.setInt(1, user.getUid());
             pst.setString(2, user.getUserName());

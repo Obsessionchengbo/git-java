@@ -7,6 +7,7 @@ import utils.JDBCUtils;
 import java.sql.*;
 import java.util.ArrayList;
 
+@SuppressWarnings("all")
 public class BookDaoImpl implements BookDao {
     @Override//查询所有书籍
     public ArrayList<Book> bookSelectAll() {
