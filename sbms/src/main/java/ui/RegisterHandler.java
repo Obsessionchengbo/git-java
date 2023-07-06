@@ -10,11 +10,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 @SuppressWarnings("all")
-public class Register extends KeyAdapter implements ActionListener {
+public class RegisterHandler extends KeyAdapter implements ActionListener {
 
     private RegisterFace register;
 
-    public Register(RegisterFace zhuCe) {
+    public RegisterHandler(RegisterFace zhuCe) {
         this.register = zhuCe;
     }
 

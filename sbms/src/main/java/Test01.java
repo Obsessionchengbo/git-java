@@ -9,7 +9,11 @@ import daoImpl.UserDaoImpl;
 import daoImpl.UserTypeDaoImpl;
 import org.junit.Test;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Test01 {
 
@@ -68,9 +72,34 @@ public class Test01 {
     }
 
     @Test
+    public static void main(String[] args) throws ParseException {
+
+
+
+
+//            try {
+               //day1 = format.parse(String.valueOf(time2));  //字符串转java.sql.Date
+
+
+//                //java.sql.Date 转Timestamp
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+//
+//            DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");   //声明要转换成什么格式的时间类型
+//            try {
+//                day2 = format.parse(String.valueOf(time2));  //字符串转java.sql.Date
+//                //java.sql.Date 转Timestamp
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+    }
+
+
+    @Test
     public void testBorrowInformation(){
         BorrowInformationDaoImpl borrowInformation = new BorrowInformationDaoImpl();
-        BorrowInformation borrowInformation1 = new BorrowInformation(3,10003,20230011,new Timestamp(System.currentTimeMillis()),0,null,0F);
+        BorrowInformation borrowInformation1 = new BorrowInformation(3,10003,20230011,new Date(System.currentTimeMillis()),0,null,0F);
         System.out.println(borrowInformation.borrowInformationSelectBuid(1));
         //测试新增功能
         if (borrowInformation.borrowInformationInsert(borrowInformation1) > 0) {

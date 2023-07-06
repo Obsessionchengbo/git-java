@@ -31,13 +31,12 @@ public class UserTypeDaoImpl implements UserTypeDao {
             while (rs.next()) {
                 Integer utid = rs.getInt("utid");
                 String position = rs.getString("position");
-                Integer maxCount = rs.getInt("password");
+                Integer maxCount = rs.getInt("max_count");
 
-
-                //封装Student对象
+                //封装用户类型对象
                 UserType userType = new UserType(utid, position, maxCount);
 
-                //将student对象保存到集合中
+                //将用户类型对象保存到集合中
                 list.add(userType);
             }
 

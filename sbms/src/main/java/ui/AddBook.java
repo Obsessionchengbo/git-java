@@ -26,11 +26,10 @@ public class AddBook extends KeyAdapter implements ActionListener {
             addBook();
         } else if ("返回".equals(text)) {
             try {
-                new AdminFace();
+                addBook.dispose();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            addBook.dispose();
         }
     }
 

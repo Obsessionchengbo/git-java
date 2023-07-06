@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Data
@@ -17,11 +18,11 @@ public class BorrowInformation {
 
     private Integer bid;
 
-    private Timestamp borrowTime;
+    private java.sql.Date borrowTime;
 
     private Integer status;
 
-    private Timestamp returnTime;
+    private Date returnTime;
 
     private Float amercement;
 

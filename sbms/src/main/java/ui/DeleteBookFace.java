@@ -3,6 +3,7 @@ package ui;//LoginHandler6
 import javax.swing.*;
 import java.awt.*;
 
+@SuppressWarnings("all")
 public class DeleteBookFace extends JFrame {
     SpringLayout springLayout = new SpringLayout();//弹簧布局
     JPanel jPanel = new JPanel(springLayout);
@@ -11,12 +12,12 @@ public class DeleteBookFace extends JFrame {
     JTextField label1Field = new JTextField();
     JButton JB1 = new JButton("删除");
     JButton JB2 = new JButton("返回");
-    LoginHandler6 loginHandler6;
+    DeleteBook loginHandler6;
 
     public DeleteBookFace() {
         super("删除界面");
 
-        loginHandler6 = new LoginHandler6(this);
+        loginHandler6 = new DeleteBook(this);
         Container contentPane = getContentPane();
 
         head.setFont(new Font("华文行楷", Font.BOLD, 40));
@@ -63,10 +64,6 @@ public class DeleteBookFace extends JFrame {
         //JB2
         springLayout.putConstraint(SpringLayout.NORTH, JB2, 0, SpringLayout.NORTH, JB1);
         springLayout.putConstraint(SpringLayout.WEST, JB2, 50, SpringLayout.EAST, JB1);
-    }
-
-    public static void main(String[] args) {
-        new DeleteBookFace();
     }
 
     public JTextField getLabel1Field() {

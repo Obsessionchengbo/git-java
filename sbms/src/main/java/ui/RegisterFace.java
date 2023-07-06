@@ -23,12 +23,12 @@ public class RegisterFace extends JFrame {
     JTextField label6Field = new JTextField();
     JButton JB1 = new JButton("注册");
     JButton JB2 = new JButton("返回");
-    Register loginHandler2;
+    RegisterHandler loginHandler2;
 
     public RegisterFace() {
         super("注册界面");
 
-        loginHandler2 = new Register(this);
+        loginHandler2 = new RegisterHandler(this);
         Container contentPane = getContentPane();
 
         head.setFont(new Font("华文行楷", Font.BOLD, 40));

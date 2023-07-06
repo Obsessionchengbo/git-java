@@ -13,6 +13,7 @@ public class LoginHandler extends KeyAdapter implements ActionListener {
 
     private MainFace loginFace;
 
+
     public LoginHandler(MainFace loginFace) {
         this.loginFace = loginFace;
     }
@@ -42,6 +43,7 @@ public class LoginHandler extends KeyAdapter implements ActionListener {
         String chars = loginFace.getLabel2Field().getText();
         boolean a = loginFace.radioButton1.isSelected();
         System.out.println(userid + ":" + chars + a);
+
         //查询
 
         UserDaoImpl userDao = new UserDaoImpl();
@@ -75,7 +77,7 @@ public class LoginHandler extends KeyAdapter implements ActionListener {
         } else {
             if (flag) {
                 try {
-                    new User();
+                    new UserFace(userid);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -85,6 +87,7 @@ public class LoginHandler extends KeyAdapter implements ActionListener {
             }
         }
     }
+
 
     @Override
     public void keyPressed(KeyEvent e) {

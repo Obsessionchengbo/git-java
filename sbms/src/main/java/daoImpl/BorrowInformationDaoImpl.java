@@ -21,7 +21,7 @@ public class BorrowInformationDaoImpl implements BorrowInformationDao {
             stat = conn.createStatement();
 
             //4.执行sql语句，并且接收返回的结果集
-            String sql = "SELECT * FROM borrow_information";
+            String sql = "SELECT * FROM borrow_information2";
             rs = stat.executeQuery(sql);
 
             //5.处理结果集
@@ -29,9 +29,9 @@ public class BorrowInformationDaoImpl implements BorrowInformationDao {
                 Integer buid = rs.getInt("buid");
                 Integer uid = rs.getInt("uid");
                 Integer bid = rs.getInt("bid");
-                Timestamp borrowTime = rs.getTimestamp("borrow_time");
+                Date borrowTime = rs.getDate("borrow_time");
                 Integer status = rs.getInt("status");
-                Timestamp returnTime = rs.getTimestamp("return_time");
+                Date returnTime = rs.getDate("return_time");
                 Float amercement = rs.getFloat("amercement");
 
                 //封装Student对象
@@ -59,7 +59,7 @@ public class BorrowInformationDaoImpl implements BorrowInformationDao {
         ResultSet rs = null;
         try {
             conn = utils.JDBCUtils.getConnect();
-            String sql = "SELECT * FROM borrow_information WHERE buid=?";
+            String sql = "SELECT * FROM borrow_information2 WHERE buid=?";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, id);
             System.out.println(sql);
@@ -69,9 +69,9 @@ public class BorrowInformationDaoImpl implements BorrowInformationDao {
                 Integer buid = rs.getInt("buid");
                 Integer uid = rs.getInt("uid");
                 Integer bid = rs.getInt("bid");
-                Timestamp borrowTime = rs.getTimestamp("borrow_time");
+                Date borrowTime = rs.getDate("borrow_time");
                 Integer status = rs.getInt("status");
-                Timestamp returnTime = rs.getTimestamp("return_time");
+                Date returnTime = rs.getDate("return_time");
                 Float amercement = rs.getFloat("amercement");
 
                 //封装借书记录对象
@@ -101,7 +101,7 @@ public class BorrowInformationDaoImpl implements BorrowInformationDao {
         int result = 0;
         try {
             con = utils.JDBCUtils.getConnect();
-            String sql = "insert into borrow_information values (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into borrow_information2 values (?, ?, ?, ?, ?, ?, ?)";
             pst = con.prepareStatement(sql);
             pst.setObject(1, borrowInformation.getBuid());
             pst.setObject(2, borrowInformation.getUid());
@@ -126,7 +126,7 @@ public class BorrowInformationDaoImpl implements BorrowInformationDao {
         int result = 0;
         try {
             con = utils.JDBCUtils.getConnect();
-            String sql = "delete from borrow_information where buid=?";
+            String sql = "delete from borrow_information2 where buid=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, id);
             result = pst.executeUpdate();
@@ -145,13 +145,13 @@ public class BorrowInformationDaoImpl implements BorrowInformationDao {
         int result = 0;
         try {
             con = utils.JDBCUtils.getConnect();
-            String sql = "update borrow_information set uid=?,bid=?,borrow_time=?,status=?,returm_time=?,amercement=? where buid=?";
+            String sql = "update borrow_information2 set uid=?,bid=?,borrow_time=?,status=?,return_time=?,amercement=? where buid=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, borrowInformation.getUid());
             pst.setInt(2, borrowInformation.getBid());
-            pst.setTimestamp(3,borrowInformation.getBorrowTime());
+            pst.setDate(3,borrowInformation.getBorrowTime());
             pst.setInt(4, borrowInformation.getStatus());
-            pst.setTimestamp(5, borrowInformation.getReturnTime());
+            pst.setDate(5, borrowInformation.getReturnTime());
             pst.setFloat(6,borrowInformation.getAmercement());
             pst.setInt(7, borrowInformation.getBuid());
             result = pst.executeUpdate();

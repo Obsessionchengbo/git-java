@@ -24,4 +24,7 @@ public interface BookDao {
     //更新书籍
     int bookUpdate(Book book);
 
+    //模糊查询书籍
+    ArrayList<Book> booksSelectByOther(String Type);
+
 }

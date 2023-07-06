@@ -12,15 +12,15 @@ public class AdminFace extends JFrame {
     JButton JB2 = new JButton("删除书籍");
     JButton JB3 = new JButton("更改书籍");
     JButton JB4 = new JButton("查看书籍");
-    JButton JB5 = new JButton("删除用户");
+    JButton JB5 = new JButton("查看借阅记录");
     JButton JB6 = new JButton("查看用户");
     JButton JB7 = new JButton("退出系统");
-    LoginHandler3 loginHandler3;
+    AdminHandler loginHandler3;
 
     public AdminFace() {
         super("管理员界面");
 
-        loginHandler3 = new LoginHandler3(this);
+        loginHandler3 = new AdminHandler(this);
         Container contentPane = getContentPane();
 
         head.setFont(new Font("华文行楷", Font.BOLD, 40));

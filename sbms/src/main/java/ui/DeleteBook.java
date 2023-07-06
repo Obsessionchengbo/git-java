@@ -6,11 +6,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginHandler6 implements ActionListener {
+public class DeleteBook implements ActionListener {
 
     private DeleteBookFace deleteBook;
 
-    public LoginHandler6(DeleteBookFace deleteBook) {
+    public DeleteBook(DeleteBookFace deleteBook) {
         this.deleteBook = deleteBook;
     }
 
@@ -43,11 +43,10 @@ public class LoginHandler6 implements ActionListener {
             }
         } else if ("返回".equals(text)) {
             try {
-                new AdminFace();
+                deleteBook.dispose();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            deleteBook.dispose();
         }
     }
 }

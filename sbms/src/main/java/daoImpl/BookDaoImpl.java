@@ -35,10 +35,10 @@ public class BookDaoImpl implements BookDao {
                 Float price = rs.getFloat("price");
                 Integer count = rs.getInt("count");
 
-                //封装Student对象
+                //封装书籍对象
                 Book book = new Book(bid, bookName, author, press, synopsis, bookType, price, count);
 
-                //将student对象保存到集合中
+                //将书籍对象保存到集合中
                 list.add(book);
             }
 
@@ -168,4 +168,46 @@ public class BookDaoImpl implements BookDao {
         }
         return result;
     }
+
+    @Override
+    public ArrayList<Book> booksSelectByOther(String Type){
+        ArrayList<Book> books = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            conn = utils.JDBCUtils.getConnect();
+            String sql = "SELECT * FROM book WHERE book_type like ?";
+            pst = conn.prepareStatement(sql);
+            String keyWord = Type;
+            pst.setString(1,"%"+keyWord+"%");
+            System.out.println(sql);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Integer bid = rs.getInt("bid");
+                String bookName = rs.getString("book_name");
+                String author = rs.getString("author");
+                String press = rs.getString("press");
+                String synopsis = rs.getString("synopsis");
+                String bookType = rs.getString("book_type");
+                Float price = rs.getFloat("price");
+                Integer count = rs.getInt("count");
+
+
+                //封装书籍对象
+                Book book = new Book(bid, bookName, author, press, synopsis, bookType, price, count);
+                books.add(book);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //释放资源
+            JDBCUtils.close(conn, pst, rs);
+        }
+        //将对象返回
+        return books;
+    }
+
 }

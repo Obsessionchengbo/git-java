@@ -6,10 +6,11 @@ import java.awt.*;
 //主界面
 @SuppressWarnings("all")
 public class MainFace extends JFrame {
+
     SpringLayout springLayout = new SpringLayout();//弹簧布局
     JPanel jPanel = new JPanel(springLayout);
     JLabel head = new JLabel("学校图书管理系统");
-    JLabel label1 = new JLabel("账号：");
+    JLabel label1 = new JLabel("用户名：");
     JTextField label1Field = new JTextField();
     JLabel label2 = new JLabel("密码：");
     JTextField label2Field = new JTextField();
